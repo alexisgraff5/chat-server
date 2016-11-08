@@ -34,7 +34,10 @@ app.post('/', function( req, res ) {
 });
 
 app.options('/', function( req, res ) {
-  messages.push(req.body.message);
+  messages.push({
+  message: req.body.message,
+  time: new Date()
+});
 
   res.status(200).set({
     'Content-Type': 'application/json',
